@@ -1,1 +1,1 @@
-# emotions-recognition
+# Emotions recognition
