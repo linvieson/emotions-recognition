@@ -1,6 +1,4 @@
 # Emotions recognition
-<<<<<<< HEAD
-=======
 
 ### Description
 This project analyzes photos from Instagram profiles and 
@@ -40,4 +38,3 @@ Contributors:
 
 ### License
 MIT
->>>>>>> mykhailo
