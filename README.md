@@ -1,5 +1,8 @@
 # Emotions recognition
 
+### Project name
+Emotions recognition and analysis by photos on the Instargam profile
+
 ### Description
 This project analyzes photos from Instagram profiles and 
 returns information about the emotions of peoples in 
@@ -7,6 +10,14 @@ posts of that account. Also, it gives a comparison with
 the common percentage of different emotions and their 
 distribution in the profile and the average statistical 
 distribution of emotions in life. 
+
+### Table of contents
+
+### Installation
+```python
+pip install ???
+```
+
 
 ### Usage
 Just use that stuff
@@ -28,13 +39,17 @@ mainly part of which was made exactly to get more likes.
 ### References
 - used materials
 
+### Preinstallation
+```python
+pip install ???
+```
+
 ### Credits
-Contributors:
-- https://github.com/fox-flex
-- https://github.com/yarkoslav
-- https://github.com/sasha-tsepilova
-- https://github.com/linvieson
-- https://github.com/caul1flower
+* [Mykhailo Pasichnyk](https://github.com/fox-flex)
+* [Yaroslav Romanus](https://github.com/yarkoslav)
+* [Oleksandra Tsepilova](https://github.com/sasha-tsepilova)
+* [Alina Voronina](https://github.com/linvieson)
+* [Anita Hrodzytska](https://github.com/caul1flower)
 
 ### License
-MIT
+[MIT](https://github.com/linvieson/emotions-recognition/blob/main/LICENSE)
