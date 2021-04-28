@@ -1,6 +1,6 @@
-'''
-The module exanple of getting pictures urls with rapidapi.
-'''
+"""
+The module example of getting pictures urls with rapid api.
+"""
 import requests
 
 
