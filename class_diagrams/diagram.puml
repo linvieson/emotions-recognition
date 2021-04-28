@@ -1,0 +1,43 @@
+@startuml
+'https://plantuml.com/class-diagram
+class Emotion{
+- __emotions: str
+- __percentage: float
+- __life_average: float
++ emotions: str
++ percentage: float
++ life_average: float
+- get_life_average(self)
++ __str__(self) -> str
+}
+class Image{
+- __link: str
+- __all_attributes: dict
+- __emotions: List[Emotion]
+- __picture: Picture
+- __rectangle: Coordinate
++ all_attributes: dict
++ emotions: List[Emotion]
++ picture: Picture
++ rectangle: Coordinate
+- __parse_image_info(self)
+}
+class InstagramPage {
+- __link: str
+- __photos: List[Image]
+- __happiest_photo: Picture
+- __average_emotions: List[Emotion]
++ photos: List[Image]
++ happiest_photo: Picture
++ average_emotions: List[Emotion]
+- __parse_page_info(self) -> List[Emotion]
++ relative_fakeness(self)
++ write_to_file(self)
++ visualize(self)
+}
+Image o-- Emotion
+InstagramPage o-- Emotion
+InstagramPage o-- Image
+
+
+@enduml
