@@ -7,7 +7,7 @@ class Emotion{
 + emotions: str
 + percentage: float
 + life_average: float
-- get_life_average(self)
+- __get_life_average(self)
 + __str__(self) -> str
 }
 class Image{
@@ -38,6 +38,5 @@ class InstagramPage {
 Image o-- Emotion
 InstagramPage o-- Emotion
 InstagramPage o-- Image
-
 
 @enduml
