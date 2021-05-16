@@ -1,14 +1,11 @@
 """ module with implementation of ADT, which are used in project """
-import shutil
-import zipfile
-from pathlib import Path
-import os
-
+from typing import List
 import numpy as np
 import matplotlib.pyplot as plt
 import requests
 from PIL import Image as Picture
 import os
+import matplotlib.pyplot as plt
 import csv
 
 from azure.cognitiveservices.vision.face import FaceClient
@@ -218,21 +215,13 @@ class InstagramPage:
         """
         display profile statistics in graphs and diagrams
         """
-        # bar diagram
-        emotions = [item.percentage*100 for item in self.__average_emotions]
-        group = np.arange(8)
-        plt.bar(group, emotions, width = 0.2, color = '#31ccc4')
-        plt.xticks(group, tuple(self.__emotions_order))
-        plt.yticks(group, tuple(emotions))
-        plt.xlabel('Emotions')
-        plt.ylabel('Percentage')
-        plt.savefig('emotion_bar.png')
+        emotions = [item.percentage * 100 for item in self.__average_emotions]
 
         # graphic
         average_emotions = []
 
         for one_emotion in self.__average_emotions:
-            average_emotions.append(one_emotion.life_average)
+            average_emotions.append(one_emotion.life_average * 100)
 
         x1 = np.array(self.__emotions_order)
         x2 = np.array(self.__emotions_order)
@@ -244,32 +233,16 @@ class InstagramPage:
         plt.title('Comparison of emotions in Instagram and in life')
         plt.legend(labels=('Instagram page emotions', 'Average life emotions'), loc='upper left')
         plt.savefig('emotion_graphic.png')
+        plt.close()
 
         # piechart
-        y = np.array(emotions)
-        lb = self.__emotions_order
+        labels = [item.emotions for item in self.__average_emotions if item.percentage >= 0.03]
+        y = [item.percentage*100 for item in self.__average_emotions if item.emotions in labels]
+        labels.append('others')
+        y.append(100 - sum(y))
+
         colors = ['#bcf8ec', '#aed9e0', '#a7ccd4', '#8b687f', '#7b435b', '#e8eddf', '#cfdbd5', '#aac8e6']
         plt.pie(y, startangle = 90, shadow=True, autopct='%1.2f', colors=colors)
-        plt.legend(title = 'Emotions', labels=lb, loc='center left', bbox_to_anchor=(1, 0, 0.5, 1))
+        plt.legend(title = 'Emotions', labels=labels, loc='center left', bbox_to_anchor=(1, 0, 0.5, 1))
         plt.savefig('emotion_piechart.png')
-
-    def zip_result(self):
-        """ create zip archive with analysed data """
-        i = 0
-        while True:
-            try:
-                Path(os.path.join(os.getcwd(), f'data_{i}')).mkdir()
-                break
-            except FileExistsError:
-                i += 1
-        temp_directory = Path(os.path.join(os.getcwd(), f'data_{i}'))
-
-        os.chdir(temp_directory)
-        self.write_to_file()
-        self.visualize()
-        os.chdir('..')
-
-        with zipfile.ZipFile('analyzing.zip', 'w') as file:
-            for filename in temp_directory.iterdir():
-                file.write(filename, filename.name)
-        shutil.rmtree(temp_directory)
+        plt.close()
