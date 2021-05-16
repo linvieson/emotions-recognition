@@ -4,6 +4,7 @@ from typing import List
 import requests
 from PIL import Image as Picture
 import os
+import matplotlib.pyplot as plt
 
 from azure.cognitiveservices.vision.face import FaceClient
 from msrest.authentication import CognitiveServicesCredentials
@@ -84,12 +85,18 @@ class Image:
             raise Exception(
                 'No face detected from image {}'.format(single_image_name))
 
+        emotions_order = ['anger', 'contempt', 'disgust', 'fear', 
+        'happiness', 'neutral', 'sadness', 'surprise']
+
         if len(detected_faces) == 1:
             face = detected_faces[0]
             self.__all_attributes = face.face_attributes
-            self.__emotions = self.__all_attributes.emotion
+            emotions = self.__all_attributes.emotion
+            for emotion in emotions_order:
+                self.__emotions.append(emotions[emotion])
+
             self.__picture = Picture.open(requests.get(self.__link, stream=True).raw)
-            self.__rectangle = self.__all_attributes.face_rectangle
+            self.__rectangle = face.face_rectangle
         else:
             self.__all_attributes = {}
             self.__emotions = []
