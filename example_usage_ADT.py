@@ -70,6 +70,8 @@ page.write_to_file()
 
 print('visualise report')
 page.visualize()
+
+page.zip_result()
 #
 # except Exception as err:
 #     print(err)

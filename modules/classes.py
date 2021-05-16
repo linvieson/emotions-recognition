@@ -1,11 +1,14 @@
 """ module with implementation of ADT, which are used in project """
-from typing import List
+import shutil
+import zipfile
+from pathlib import Path
+import os
+
 import numpy as np
 import matplotlib.pyplot as plt
 import requests
 from PIL import Image as Picture
 import os
-import matplotlib.pyplot as plt
 import csv
 
 from azure.cognitiveservices.vision.face import FaceClient
@@ -249,3 +252,24 @@ class InstagramPage:
         plt.pie(y, startangle = 90, shadow=True, autopct='%1.2f', colors=colors)
         plt.legend(title = 'Emotions', labels=lb, loc='center left', bbox_to_anchor=(1, 0, 0.5, 1))
         plt.savefig('emotion_piechart.png')
+
+    def zip_result(self):
+        """ create zip archive with analysed data """
+        i = 0
+        while True:
+            try:
+                Path(f'./data_{i}').mkdir()
+                break
+            except FileExistsError:
+                i += 1
+        temp_directory = Path(f'./data_{i}')
+
+        os.chdir(temp_directory)
+        self.write_to_file()
+        self.visualize()
+        os.chdir('..')
+
+        with zipfile.ZipFile('analyzing.zip', 'w') as file:
+            for filename in temp_directory.iterdir():
+                file.write(filename, filename.name)
+        shutil.rmtree(temp_directory)
