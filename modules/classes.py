@@ -145,14 +145,16 @@ class InstagramPage:
 
         headers = {
             'x-rapidapi-key': KEY,
-            'x-rapidapi-host': "insta_gram47.p.rapidapi.com"
+            'x-rapidapi-host': "instagram47.p.rapidapi.com"
         }
 
         response = requests.request(
             "GET", URL, headers=headers, params=querystring)
-        
         for post in response.json()['body']['items']:
-            self.__photos.append(Image(post['image_versions2']['candidates'][0]['url']))
+            try:
+                self.__photos.append(Image(post['image_versions2']['candidates'][0]['url']))
+            except:
+                pass
         
         max_happiness = 0
         for photo in self.__photos:
