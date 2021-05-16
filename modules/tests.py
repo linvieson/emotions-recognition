@@ -7,7 +7,7 @@ import azure
 import unittest
 
 
-class TestValidator(TestCase):
+class TestADTs(TestCase):
     '''
     Test classes.py module.
     '''
