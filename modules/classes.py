@@ -258,11 +258,11 @@ class InstagramPage:
         i = 0
         while True:
             try:
-                Path(f'./data_{i}').mkdir()
+                Path(os.path.join(os.getcwd(), f'data_{i}')).mkdir()
                 break
             except FileExistsError:
                 i += 1
-        temp_directory = Path(f'./data_{i}')
+        temp_directory = Path(os.path.join(os.getcwd(), f'data_{i}'))
 
         os.chdir(temp_directory)
         self.write_to_file()
