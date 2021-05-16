@@ -56,7 +56,7 @@ Unfortunately, it is more difficult to prove the fakeness of emotions than to fi
     * picture() - get private attribute __picture
     * rectangle() - get private attribute __rectangle
 
-  * InstagramPage() - contains the next methods:
+  * InstagramPage - contains the next methods:
     * __parce_page_info() - parse info of Instagram page
     * photos() - get private attribute __photos
     * happiest_photo() - get private attribute __happiest_photo
@@ -65,6 +65,11 @@ Unfortunately, it is more difficult to prove the fakeness of emotions than to fi
     * write_to_file() - write to the file statistics of a particular Instagram profile
     * visualize() - display profile statistics in graphs and diagrams
     * zip_result() - create zip archive with analysed data
+* [examples](https://github.com/linvieson/emotions-recognition/tree/main/examples) contains the next modules with examples of usage of different classes and their methods
+  * [emotions.recognition.py](https://github.com/linvieson/emotions-recognition/blob/main/examples/example_emotion_recognition.py) - example of using azure API
+  * [example_modules_usage.py](https://github.com/linvieson/emotions-recognition/blob/main/examples/example_modules_usage.py) - examples of module usage
+  * [example_photo_links.py](https://github.com/linvieson/emotions-recognition/blob/main/examples/example_photo_links.py) - example of getting pictures urls with rapid api
+  * [examples_django](https://github.com/linvieson/emotions-recognition/tree/main/examples/example_django) folder - example of Django usage
 
 ***
 
