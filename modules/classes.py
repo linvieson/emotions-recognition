@@ -225,7 +225,7 @@ class InstagramPage:
         average_emotions = []
 
         for one_emotion in self.__average_emotions:
-            average_emotions.append(one_emotion.life_average)
+            average_emotions.append(one_emotion.life_average * 100)
 
         x1 = np.array(self.__emotions_order)
         x2 = np.array(self.__emotions_order)
@@ -238,16 +238,20 @@ class InstagramPage:
         plt.legend(labels=('Instagram page emotions',\
                             'Average life emotions'), loc='upper left')
         plt.savefig('emotion_graphic.png')
+        plt.close()
 
         # piechart
-        y = np.array(emotions)
-        lb = self.__emotions_order
+        labels = [item.emotions for item in self.__average_emotions if item.percentage >= 0.03]
+        y = [item.percentage*100 for item in self.__average_emotions if item.emotions in labels]
+        labels.append('others')
+        y.append(100 - sum(y))
         colors = ['#bcf8ec', '#aed9e0', '#a7ccd4', '#8b687f', '#7b435b',\
                   '#e8eddf', '#cfdbd5', '#aac8e6']
         plt.pie(y, startangle = 90, shadow=True, autopct='%1.2f', colors=colors)
-        plt.legend(title = 'Emotions', labels=lb, loc='center left',\
+        plt.legend(title = 'Emotions', labels=labels, loc='center left', \
                    bbox_to_anchor=(1, 0, 0.5, 1))
         plt.savefig('emotion_piechart.png')
+        plt.close()
 
 
     def zip_result(self):
