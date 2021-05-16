@@ -1,8 +1,4 @@
 # Emotions recognition and analysis by photos on the Instargam profile
-***
-
-### Table of contents
-***
 
 ### Description
 This project analyzes emotions on photos from the Instagram profile and provides user with the statistics and visual data. It also displays the comparison between the average 
@@ -41,7 +37,7 @@ Unfortunately, it is more difficult to prove the fakeness of emotions than to fi
 ***
 
 ### Structure
-* [modules](https://github.com/linvieson/emotions-recognition/tree/main/modules) contains [classes.py](https://github.com/linvieson/emotions-recognition/blob/main/modules/classes.py) module that contains the next ADT classes:
+* [modules](https://github.com/linvieson/emotions-recognition/tree/main/modules) contains a [tests.py](https://github.com/linvieson/emotions-recognition/blob/main/modules/tests.py) module that contains module unittests for main ADT classes and a [classes.py](https://github.com/linvieson/emotions-recognition/blob/main/modules/classes.py) module that contains the next ADT classes:
   * Emotion - contains the next methods:
     * __get_life_average() - parse life average emotion percentage by name
     * emotion() - get private attribute __emotions
