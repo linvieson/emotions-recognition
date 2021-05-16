@@ -53,7 +53,7 @@ class Emotion:
 
 
     def __str__(self):
-        """ returns string representation of the image ADT class"""
+        """ returns string representation of the emotion ADT class """
         return \
           f'emotion name:                    {self.emotions}\n'\
           f'emotion percentage:              {round(100*self.percentage,1)}\n'\
@@ -108,22 +108,22 @@ class Image:
 
     @property
     def all_attributes(self):
-        """ get privat attribute __all_attributes """
+        """ get private attribute __all_attributes """
         return self.__all_attributes
 
     @property
     def emotions(self):
-        """ get privat attribute __emotions """
+        """ get private attribute __emotions """
         return self.__emotions
 
     @property
     def picture(self):
-        """ get privat attribute __picture """
+        """ get private attribute __picture """
         return self.__picture
 
     @property
     def rectangle(self):
-        """ get privat attribute __rectangle """
+        """ get private attribute __rectangle """
         return self.__rectangle
 
 
@@ -180,17 +180,17 @@ class InstagramPage:
 
     @property
     def photos(self):
-        """ get privat attribute __photos """
+        """ get private attribute __photos """
         return self.__photos
 
     @property
     def happiest_photo(self):
-        """ get privat attribute __happiest_photo """
+        """ get private attribute __happiest_photo """
         return self.__happiest_photo
 
     @property
     def average_emotions(self):
-        """ get privat attribute __average_emotions """
+        """ get private attribute __average_emotions """
         return self.__average_emotions
 
     def relative_fakeness(self) -> float:
