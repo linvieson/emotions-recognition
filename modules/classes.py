@@ -143,7 +143,7 @@ class InstagramPage:
 
         URL = "https://instagram47.p.rapidapi.com/user_posts"
         # rapidapi key
-        KEY = "2eff45ea8amshae726bb389e7279p113b54jsne071b6a20348"
+        KEY = "c2480c722emsh51bc692f9b351bcp1a170ajsnb495557dbedf"
 
         querystring = {"username": self.__username}
 
