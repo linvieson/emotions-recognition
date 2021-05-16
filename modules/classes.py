@@ -98,47 +98,75 @@ class Image:
 
 class InstagramPage:
     """ class InstagramPage """
-    def __init__(self, link: str):
-        """ initialize class parameters """
-        self.__link = link
+    __emotions_order = ['anger', 'contempt', 'disgust', 'fear', 'happiness', 'neutral', 'sadness', 'surprise']
+    def __init__(self, username: str):
+        self.__username = username
         self.__photos = []              # type - List[Image]
         self.__happiest_photo = None    # type - Picture
         self.__average_emotions = []    # type - List[Emotion]
         self.__parse_page_info()
 
-
     def __parse_page_info(self):
         """ parse info of Instagram page """
-        self.__photos = []
-        self.__happiest_photo = None
-        self.__average_emotions = []
 
+        URL = "https://instagram47.p.rapidapi.com/user_posts"
+        # rapidapi key
+        KEY = "2eff45ea8amshae726bb389e7279p113b54jsne071b6a20348"
+
+        querystring = {"username": self.__username}
+
+        headers = {
+            'x-rapidapi-key': KEY,
+            'x-rapidapi-host': "insta_gram47.p.rapidapi.com"
+        }
+
+        response = requests.request(
+            "GET", URL, headers=headers, params=querystring)
+        
+        for post in response.json()['body']['items']:
+            self.__photos.append(Image(post['image_versions2']['candidates'][0]['url']))
+        
+        max_happiness = 0
+        for photo in self.__photos:
+            happiness = photo.emotions[4].percentage
+            if happiness > max_happiness:
+                max_happiness = happiness
+                happiest_photo = photo
+        self.__happiest_photo = happiest_photo.picture
+
+        summary_emotions = [0] * 8
+        for photo in self.__photos:
+            for idx_emotion in range(8):
+                summary_emotions[idx_emotion] += photo.emotions[idx_emotion].percentage
+        
+        num_photos = len(self.__photos)
+        for idx_emotion in range(8):
+            self.__average_emotions.append(Emotion(self.__emotions_order[idx_emotion], summary_emotions[idx_emotion] / num_photos))
 
     @property
     def photos(self):
         """ get privat attribute __photos """
         return self.__photos
 
-
     @property
     def happiest_photo(self):
         """ get privat attribute __happiest_photo """
         return self.__happiest_photo
-
 
     @property
     def average_emotions(self):
         """ get privat attribute __average_emotions """
         return self.__average_emotions
 
-
     def relative_fakeness(self) -> float:
         """
         return the relative percentage of fake profile emotion
         compared to the average human emotions
         """
-        return 1.
-
+        fakeness = 0
+        for emotion in self.average_emotions:
+            fakeness += abs(emotion.percentage - emotion.life_average)
+        return fakeness
 
     def analyze(self) -> List[Emotion]:
         """
@@ -147,13 +175,11 @@ class InstagramPage:
         """
         pass
 
-
     def write_to_file(self):
         """
         writing to the file statistics of a particular Instagram profile
         """
         pass
-
 
     def visualize(self):
         """
