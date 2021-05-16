@@ -64,8 +64,6 @@ for emotion in page.average_emotions:
     print('---------------------------------------')
 
 print(f'relative fakeness percentage: {round(100 * page.relative_fakeness(), 1)}')
-print('print info about emotions of Instagram page')
-pprint(page.analyze())
 
 print('print report into the file')
 page.write_to_file()

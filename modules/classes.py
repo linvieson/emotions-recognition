@@ -207,7 +207,7 @@ class InstagramPage:
             emotions = self.__average_emotions
             csv_out = csv.writer(out_file)
             for emotion in emotions:
-                csv_out.writerow(emotion)
+                csv_out.writerow([emotion.emotions, emotion.percentage])
             csv_out.writerow(['Fakeness', self.relative_fakeness()])
 
     def visualize(self):
