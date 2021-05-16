@@ -93,7 +93,7 @@ class Image:
             self.__all_attributes = face.face_attributes
             emotions = self.__all_attributes.emotion
             for emotion in emotions_order:
-                self.__emotions.append(emotions[emotion])
+                self.__emotions.append(Emotion(emotion, emotions[emotion]))
 
             self.__picture = Picture.open(requests.get(self.__link, stream=True).raw)
             self.__rectangle = face.face_rectangle
