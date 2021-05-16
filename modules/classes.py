@@ -216,10 +216,10 @@ class InstagramPage:
         display profile statistics in graphs and diagrams
         """
         # bar diagram
-        emotions = self.__average_emotions
+        emotions = [item.percentage*100 for item in self.__average_emotions]
         group = np.arange(8)
         plt.bar(group, emotions, width = 0.2, color = '#31ccc4')
-        plt.xticks(group, tuple(emotions))
+        plt.xticks(group, tuple(self.__emotions_order))
         plt.yticks(group, tuple(emotions))
         plt.xlabel('Emotions')
         plt.ylabel('Percentage')
@@ -228,11 +228,11 @@ class InstagramPage:
         # graphic
         average_emotions = []
 
-        for one_emotion in InstagramPage.__emotions_orders:
+        for one_emotion in self.__average_emotions:
             average_emotions.append(one_emotion.life_average)
 
-        x1 = np.array(InstagramPage.__emotions_order)
-        x2 = np.array(InstagramPage.__emotions_order)
+        x1 = np.array(self.__emotions_order)
+        x2 = np.array(self.__emotions_order)
         y1 = np.array(emotions)
         y2 = np.array(average_emotions)
         plt.plot(x1, y1, x2, y2, marker='o')
@@ -244,7 +244,7 @@ class InstagramPage:
 
         # piechart
         y = np.array(emotions)
-        lb = __emotions_order
+        lb = self.__emotions_order
         colors = ['#bcf8ec', '#aed9e0', '#a7ccd4', '#8b687f', '#7b435b', '#e8eddf', '#cfdbd5', '#aac8e6']
         plt.pie(y, startangle = 90, shadow=True, autopct='%1.2f', colors=colors)
         plt.legend(title = 'Emotions', labels=lb, loc='center left', bbox_to_anchor=(1, 0, 0.5, 1))
