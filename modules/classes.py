@@ -3,6 +3,10 @@ from typing import List
 
 import requests
 from PIL import Image as Picture
+import os
+
+from azure.cognitiveservices.vision.face import FaceClient
+from msrest.authentication import CognitiveServicesCredentials
 
 
 class Emotion:
@@ -53,9 +57,8 @@ class Emotion:
 
 
 class Image:
-    """ class InstagramPage """
+    """ class Image """
     def __init__(self, link: str):
-        """ initialize class parameters """
         self.__link = link
         self.__all_attributes = {}  # type - dict
         self.__emotions = []        # type - List[Emotion]
@@ -63,32 +66,50 @@ class Image:
         self.__rectangle = None     # type  - Coordinate
         self.__parse_image_info()
 
-
     def __parse_image_info(self):
         """ parse info of Instagram page """
-        self.__all_attributes = {}
-        self.__emotions = []
-        self.__picture = Picture.open(requests.get(self.__link, stream=True).raw)
-        self.__rectangle = None
+        KEY = '16901474877d4e85b4ba98a3505ab142'
+        ENDPOINT = 'https://sashatsepilova.cognitiveservices.azure.com/'
 
+        single_face_image_url = self.__link
+        single_image_name = os.path.basename(single_face_image_url)
+
+        face_client = FaceClient(ENDPOINT, CognitiveServicesCredentials(KEY))
+
+        detected_faces = face_client.face.detect_with_url(
+            url=single_face_image_url, detection_model='detection_01',
+            return_face_attributes=['emotion'])
+
+        if not detected_faces:
+            raise Exception(
+                'No face detected from image {}'.format(single_image_name))
+
+        if len(detected_faces) == 1:
+            face = detected_faces[0]
+            self.__all_attributes = face.face_attributes
+            self.__emotions = self.__all_attributes.emotion
+            self.__picture = Picture.open(requests.get(self.__link, stream=True).raw)
+            self.__rectangle = self.__all_attributes.face_rectangle
+        else:
+            self.__all_attributes = {}
+            self.__emotions = []
+            self.__picture = None
+            self.__rectangle = None
 
     @property
     def all_attributes(self):
         """ get privat attribute __all_attributes """
         return self.__all_attributes
 
-
     @property
     def emotions(self):
         """ get privat attribute __emotions """
         return self.__emotions
 
-
     @property
     def picture(self):
         """ get privat attribute __picture """
         return self.__picture
-
 
     @property
     def rectangle(self):
