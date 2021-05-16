@@ -1,6 +1,7 @@
 """ module with implementation of ADT, which are used in project """
 from typing import List
-
+import numpy as np
+import matplotlib.pyplot as plt
 import requests
 from PIL import Image as Picture
 import os
@@ -214,4 +215,37 @@ class InstagramPage:
         """
         display profile statistics in graphs and diagrams
         """
-        pass
+        # bar diagram
+        emotions = self.__average_emotions
+        group = np.arange(8)
+        plt.bar(group, emotions, width = 0.2, color = '#31ccc4')
+        plt.xticks(group, tuple(emotions))
+        plt.yticks(group, tuple(emotions))
+        plt.xlabel('Emotions')
+        plt.ylabel('Percentage')
+        plt.savefig('emotion_bar.png')
+
+        # graphic
+        average_emotions = []
+
+        for one_emotion in InstagramPage.__emotions_orders:
+            average_emotions.append(one_emotion.life_average)
+
+        x1 = np.array(InstagramPage.__emotions_order)
+        x2 = np.array(InstagramPage.__emotions_order)
+        y1 = np.array(emotions)
+        y2 = np.array(average_emotions)
+        plt.plot(x1, y1, x2, y2, marker='o')
+        plt.xlabel('Emotions')
+        plt.ylabel('Percentage')
+        plt.title('Comparison of emotions in Instagram and in life')
+        plt.legend(labels=('Instagram page emotions', 'Average life emotions'), loc='upper left')
+        plt.savefig('emotion_graphic.png')
+
+        # piechart
+        y = np.array(emotions)
+        lb = __emotions_order
+        colors = ['#bcf8ec', '#aed9e0', '#a7ccd4', '#8b687f', '#7b435b', '#e8eddf', '#cfdbd5', '#aac8e6']
+        plt.pie(y, startangle = 90, shadow=True, autopct='%1.2f', colors=colors)
+        plt.legend(title = 'Emotions', labels=lb, loc='center left', bbox_to_anchor=(1, 0, 0.5, 1))
+        plt.savefig('emotion_piechart.png')
