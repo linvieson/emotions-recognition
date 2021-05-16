@@ -6,8 +6,181 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instagram emotions</title>
     <link rel="icon" href="../static/favicon.png">
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .page-info {
+            /* Fallback c
+            olor */
+            background-color: rgba(49, 204, 196, 0.856);
+            /* Black w/opacity/see-through */
+            color: white;
+            border-radius: 30px;
+            font-weight: bold;
+            border: 3px solid #f1f1f1;
+            z-index: 2;
+            width: 90%;
+            padding: 20px;
+            text-align: center;
+            font-size: 28px;
+            margin-left: 5%;
+            margin-bottom: 2%;
+            padding-bottom:5%;
+        }
+
+        .header {
+            height: 70px;
+            padding: 20px;
+        }
+
+        #backbutton {
+            float: left;
+        }
+
+        .container {
+            width: 100%;
+            padding: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        #main-content {
+            width: 100%;
+        }
+
+        button {
+            border-radius: 10px;
+            padding: 5px;
+            background-color: rgba(49, 204, 196, 0.856);
+            font-size: 25px;
+            margin-left: 20px;
+            width: 140px;
+            float: right;
+            color: white;
+            border: 1px solid rgba(49, 204, 196, 0.856);
+            cursor: pointer;
+        }
+
+        button:hover {
+            border: 1px solid rgb(0, 0, 0);
+        }
+
+
+        img {
+            width: 70%;
+        }
+
+        .page-content{
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            background-position: center;
+            background-size: 100%;
+            background-image: url('../static/image.jpg');
+        }
+        .email{
+            font-size: 20px;
+        }
+        #hons{
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 30px;
+            margin-left: 5%;
+            width: 90%;
+            color: white;
+            border: 3px solid #f1f1f1;
+            background-color: rgba(49, 204, 196, 0.856);
+            display: table;
+        }
+        h1{
+            text-align: center;
+            display: table-cell;
+            width: 50%;
+        }
+        .row{
+            width: 100%;
+            display: table;
+        }
+        .photo{
+            height: 100%;
+            width:50%;
+            display: table-cell;
+            vertical-align: middle;
+        }
+        
+    </style>
 </head>
+
 <body>
-    
+    <!-- <div class="bg-image"></div> -->
+    <div class="page-content">
+        <div class="header">
+            <button id='backbutton' onclick="window.location.href='index.html'">Back</button>
+            <button onclick="window.location.href='https://github.com/linvieson/emotions-recognition'">Info</button>
+            <!-- <button>Contact us</button> -->
+            <!-- <button></button> -->
+        </div>
+        <div id='main-content'>
+            <div id='hons'>
+                <h1>Nickname</h1>
+                <h1>Relative fakeness: </h1>
+            </div>
+            
+            <div class="page-info">
+                <div class="row">
+                    <div class="photo">
+                        <p class='label'>Your happiest Instagram photo</p>
+
+                    </div>
+                    <div class="photo">
+                        <p class='label'>Your profile emoji</p>
+                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="photo">
+                        <img src='../static/sasha.jpg'>
+
+                    </div>
+                    <div class="photo">
+                        <img src='../static/disgust.png'>
+                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="photo">
+                        <p class='label'>Comparison of emotions in Instagram and real life</p>
+
+                    </div>
+                    <div class="photo">
+                        <p class='label'>Avarage profile emotions</p>
+                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="photo">
+                        <img src='../static/sasha.jpg'>
+
+                    </div>
+                    <div class="photo">
+                        <img src='../static/sasha.jpg'>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
