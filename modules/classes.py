@@ -5,6 +5,7 @@ import requests
 from PIL import Image as Picture
 import os
 import matplotlib.pyplot as plt
+import csv
 
 from azure.cognitiveservices.vision.face import FaceClient
 from msrest.authentication import CognitiveServicesCredentials
@@ -202,7 +203,12 @@ class InstagramPage:
         """
         writing to the file statistics of a particular Instagram profile
         """
-        pass
+        with open('account_analysis.csv', 'w', encoding='utf-8') as out_file:
+            emotions = self.__average_emotions
+            csv_out = csv.writer(out_file)
+            for emotion in emotions:
+                csv_out.writerow(emotion)
+            csv_out.writerow(['Fakeness', self.relative_fakeness()])
 
     def visualize(self):
         """
