@@ -85,7 +85,7 @@ class Image:
             raise Exception(
                 'No face detected from image {}'.format(single_image_name))
 
-        emotions_order = ['anger', 'contempt', 'disgust', 'fear', 
+        emotions_order = ['anger', 'contempt', 'disgust', 'fear',
         'happiness', 'neutral', 'sadness', 'surprise']
 
         if len(detected_faces) == 1:
@@ -155,7 +155,7 @@ class InstagramPage:
                 self.__photos.append(Image(post['image_versions2']['candidates'][0]['url']))
             except:
                 pass
-        
+
         max_happiness = 0
         for photo in self.__photos:
             happiness = photo.emotions[4].percentage
@@ -168,7 +168,7 @@ class InstagramPage:
         for photo in self.__photos:
             for idx_emotion in range(8):
                 summary_emotions[idx_emotion] += photo.emotions[idx_emotion].percentage
-        
+
         num_photos = len(self.__photos)
         for idx_emotion in range(8):
             self.__average_emotions.append(Emotion(self.__emotions_order[idx_emotion], summary_emotions[idx_emotion] / num_photos))
@@ -197,13 +197,6 @@ class InstagramPage:
         for emotion in self.average_emotions:
             fakeness += abs(emotion.percentage - emotion.life_average)
         return fakeness
-
-    def analyze(self) -> List[Emotion]:
-        """
-        will analyze the profile photo and return a list with the Emotion
-        objects, which describe the profile
-        """
-        pass
 
     def write_to_file(self):
         """
