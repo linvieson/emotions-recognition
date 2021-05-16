@@ -1,15 +1,14 @@
 """ module with implementation of ADT, which are used in project """
-import shutil
-import zipfile
-from pathlib import Path
-
-import numpy as np
-import matplotlib.pyplot as plt
-import requests
-from PIL import Image as Picture
 import os
 import csv
+import shutil
+import zipfile
+import requests
+import numpy as np
+import matplotlib.pyplot as plt
 
+from pathlib import Path
+from PIL import Image as Picture
 from azure.cognitiveservices.vision.face import FaceClient
 from msrest.authentication import CognitiveServicesCredentials
 
@@ -130,7 +129,8 @@ class Image:
 
 class InstagramPage:
     """ class InstagramPage """
-    __emotions_order = ['anger', 'contempt', 'disgust', 'fear', 'happiness', 'neutral', 'sadness', 'surprise']
+    __emotions_order = ['anger', 'contempt', 'disgust', 'fear', 'happiness',\
+                        'neutral', 'sadness', 'surprise']
     def __init__(self, username: str):
         self.__username = username
         self.__photos = []              # type - List[Image]
@@ -175,7 +175,8 @@ class InstagramPage:
 
         num_photos = len(self.__photos)
         for idx_emotion in range(8):
-            self.__average_emotions.append(Emotion(self.__emotions_order[idx_emotion], summary_emotions[idx_emotion] / num_photos))
+            self.__average_emotions.append(Emotion(self.__emotions_order[idx_emotion],\
+                 summary_emotions[idx_emotion] / num_photos))
 
     @property
     def photos(self):
@@ -211,10 +212,10 @@ class InstagramPage:
             csv_out = csv.writer(out_file)
             for emotion in emotions:
                 csv_out.writerow([emotion.emotions, emotion.percentage])
-            csv_out.writerow(['Fakeness', self.relative_fakeness()])
+            csv_out.writerow(['fakeness', self.relative_fakeness()])
 
 
-def visualize(self):
+    def visualize(self):
         """
         display profile statistics in graphs and diagrams
         """
@@ -234,15 +235,18 @@ def visualize(self):
         plt.xlabel('Emotions')
         plt.ylabel('Percentage')
         plt.title('Comparison of emotions in Instagram and in life')
-        plt.legend(labels=('Instagram page emotions', 'Average life emotions'), loc='upper left')
+        plt.legend(labels=('Instagram page emotions',\
+                            'Average life emotions'), loc='upper left')
         plt.savefig('emotion_graphic.png')
 
         # piechart
         y = np.array(emotions)
         lb = self.__emotions_order
-        colors = ['#bcf8ec', '#aed9e0', '#a7ccd4', '#8b687f', '#7b435b', '#e8eddf', '#cfdbd5', '#aac8e6']
+        colors = ['#bcf8ec', '#aed9e0', '#a7ccd4', '#8b687f', '#7b435b',\
+                  '#e8eddf', '#cfdbd5', '#aac8e6']
         plt.pie(y, startangle = 90, shadow=True, autopct='%1.2f', colors=colors)
-        plt.legend(title = 'Emotions', labels=lb, loc='center left', bbox_to_anchor=(1, 0, 0.5, 1))
+        plt.legend(title = 'Emotions', labels=lb, loc='center left',\
+                   bbox_to_anchor=(1, 0, 0.5, 1))
         plt.savefig('emotion_piechart.png')
 
 
