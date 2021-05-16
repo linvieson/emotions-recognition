@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram emotions</title>
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        #main-content {
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(49, 204, 196, 0.856);
+            /* Black w/opacity/see-through */
+            color: white;
+            border-radius: 30px;
+            font-weight: bold;
+            border: 3px solid #f1f1f1;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            width: 70%;
+            padding: 20px;
+            text-align: center;
+            font-size: 40px;
+        }
+        header{
+            position: absolute;
+            top:0%;
+            right: 0%;
+            padding: 30px;
+        }
+
+        button{
+            background-color: rgba(49, 204, 196, 0.856);
+            font-size: 25px;
+            margin-left: 20px;
+            width: 140px;
+            color:  white;
+            border: 1px solid rgba(49, 204, 196, 0.856);
+            cursor: pointer;
+        }
+        button:hover{
+            border:1px solid rgb(0, 0, 0);
+        }
+        .bg-image {
+            /* The image used */
+            background-image: url("images/2634805.jpg");
+
+            /* Add the blur effect */
+            filter: blur(4px) grayscale(100%);
+            -webkit-filter: grayscale(100%) blur(4px);
+
+            /* Full height */
+            height: 100%;
+
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* p{
+            font-size: 40px;
+        } */
+
+        input[type=text] {
+            position: absolute;
+            display: block;
+            align-content: center;
+            font-size: 34px;
+            font-family: inherit;
+            background-color: white;
+            color: black;
+            width: 450px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: none;
+        }
+
+        input[type=text]:focus {
+            background-color: rgb(237, 245, 248);
+        }
+        input[type=submit]{
+            margin-top: 40px;
+            font-size: 34px;
+            font-family: inherit;
+            background-color: white;
+            border: none;
+            width: 330px;
+            border-radius: 30px;
+            cursor:pointer;
+        }
+        input[type=submit]:hover{
+            width: 340px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-image"></div>
+    <header>
+        <button>Info</button>
+        <button>Contact us</button>
+        <!-- <button></button> -->
+    </header>
+    <div id='main-content'>
+        <p>Get information about emotions on your Instagram page</p>
+        <form action="/page" method="post">
+            <input name="nickname" placeholder="Enter user nickname" type="text">
+            <input type="submit" value="Get info">
+        </form>
+    </div>
+</body>
+
+</html>
