@@ -1,4 +1,4 @@
-# Emotions recognition and analysis by photos on the Instargam profile
+# Emotions recognition and analysis by photos on the Instagram profile
 
 ### Description
 This project analyzes emotions on photos from the Instagram profile and provides user with the statistics and visual data. It also displays the comparison between the average 
