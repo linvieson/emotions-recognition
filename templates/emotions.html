@@ -179,7 +179,7 @@
                         
                     </div>
                 </div>
-                <a href="{{ url_for('download', filename="downloadFile.txt") }}">File</a>
+                <a href="{{ url_for('download', filename = data['nickname']+'.txt') }}">File</a>
             </div>
         </div>
     </div>

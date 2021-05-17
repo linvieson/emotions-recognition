@@ -78,6 +78,7 @@ def download(filename):
     # Appending app path to upload folder path within app root folder
     # uploads = os.path.join(app.root_path, app.config[UPLOAD_DIRECTORY])
     # Returning file from appended path
+    print(filename)
     return send_file( filename, as_attachment=True)
 
 if __name__ == "__main__":
