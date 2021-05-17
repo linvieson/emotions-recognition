@@ -227,8 +227,6 @@ class InstagramPage:
                 biggest_emotion_num = emotion.percentage
         return f'../static/emotions/{biggest_emotion.emotions}.png'
 
-
-
     def write_to_file(self):
         """
         writing to the file statistics of a particular Instagram profile
