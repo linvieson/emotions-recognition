@@ -74,7 +74,7 @@ Unfortunately, it is more difficult to prove the fakeness of emotions than to fi
 
 
 ### Usage
-To use the program, you need to go to the [EMOTIONS RECOGNITION WEBSITE](). Write down the Instagram nickname of the profile you want to analyze.
+To use the program, you need to go to the [Emotions recognition website](https://insta-emotions-recognition.herokuapp.com/). Write down the Instagram nickname of the profile you want to analyze.
 Press the "Get info" button. All the visual data will be provided to you. If you want to download certain files, click on the "Download" button below the file you want to 
 download.
 
