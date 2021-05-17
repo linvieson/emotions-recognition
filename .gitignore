@@ -5,4 +5,4 @@ account_analysis.csv
 analyzing.zip
 data.json
 emotions.csv
-data/*
+static/data/*
