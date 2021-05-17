@@ -1,0 +1,291 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Welcome to Emotions recognition’s documentation! &#8212; Emotions recognition 0.0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="welcome-to-emotions-recognition-s-documentation">
+<h1>Welcome to Emotions recognition’s documentation!<a class="headerlink" href="#welcome-to-emotions-recognition-s-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+<section id="module-classes">
+<span id="hello"></span><h1>Hello<a class="headerlink" href="#module-classes" title="Permalink to this headline">¶</a></h1>
+<p>module with implementation of ADT, which are used in project</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="classes.Emotion">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">classes.</span></span><span class="sig-name descname"><span class="pre">Emotion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">emotion</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percentage</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#classes.Emotion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for Emotion representation.</p>
+<dl class="simple">
+<dt>__emotions: str</dt><dd><p>name of emotion</p>
+</dd>
+<dt>__percentage: float</dt><dd><p>percentage of emotion</p>
+</dd>
+<dt>__life_average: float</dt><dd><p>average percentage of emotion in life</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>__get_life_average()</dt><dd><p>parse life average emotion percentage by name</p>
+</dd>
+<dt>emotion()</dt><dd><p>get private attribute __emotions</p>
+</dd>
+<dt>percentage()</dt><dd><p>get private attribute __percentage</p>
+</dd>
+<dt>life_average()</dt><dd><p>get private attribute __life_average</p>
+</dd>
+<dt>__str__()</dt><dd><p>returns string representation of the emotion ADT class</p>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="classes.Emotion.emotions">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">emotions</span></span><a class="headerlink" href="#classes.Emotion.emotions" title="Permalink to this definition">¶</a></dt>
+<dd><p>get private attribute __emotions</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="classes.Emotion.life_average">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">life_average</span></span><a class="headerlink" href="#classes.Emotion.life_average" title="Permalink to this definition">¶</a></dt>
+<dd><p>get private attribute __life_average</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="classes.Emotion.percentage">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">percentage</span></span><a class="headerlink" href="#classes.Emotion.percentage" title="Permalink to this definition">¶</a></dt>
+<dd><p>get private attribute __percentage</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="classes.Image">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">classes.</span></span><span class="sig-name descname"><span class="pre">Image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">link</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#classes.Image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for Image representation.</p>
+<dl class="simple">
+<dt>__link: str</dt><dd><p>link of the image</p>
+</dd>
+<dt>__all_attributes: azure.cognitiveservices.vision.face.models._models_py3.FaceAttributes</dt><dd><p>all attributes of the image</p>
+</dd>
+<dt>__emotions: list(Emotion)</dt><dd><p>list of emotions on the photo, each emotion is a member of Emotion class</p>
+</dd>
+<dt>__picture: Picture</dt><dd><p>Picture object of the photo</p>
+</dd>
+<dt>__rectangle: azure.cognitiveservices.vision.face.models._models_py3.FaceRectangle</dt><dd><p>Rectangle object of the photo</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>__parse_image_info()</dt><dd><p>parse info of Instagram page</p>
+</dd>
+<dt>all_attributes()</dt><dd><p>get privat attribute __all_attributes</p>
+</dd>
+<dt>emotions()</dt><dd><p>get private attribute __emotions</p>
+</dd>
+<dt>picture()</dt><dd><p>get private attribute __picture</p>
+</dd>
+<dt>rectangle()</dt><dd><p>get private attribute __rectangle</p>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="classes.Image.all_attributes">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">all_attributes</span></span><a class="headerlink" href="#classes.Image.all_attributes" title="Permalink to this definition">¶</a></dt>
+<dd><p>get private attribute __all_attributes</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="classes.Image.emotions">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">emotions</span></span><a class="headerlink" href="#classes.Image.emotions" title="Permalink to this definition">¶</a></dt>
+<dd><p>get private attribute __emotions</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="classes.Image.picture">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">picture</span></span><a class="headerlink" href="#classes.Image.picture" title="Permalink to this definition">¶</a></dt>
+<dd><p>get private attribute __picture</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="classes.Image.rectangle">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">rectangle</span></span><a class="headerlink" href="#classes.Image.rectangle" title="Permalink to this definition">¶</a></dt>
+<dd><p>get private attribute __rectangle</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="classes.InstagramPage">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">classes.</span></span><span class="sig-name descname"><span class="pre">InstagramPage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#classes.InstagramPage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for InstagramPage representation.</p>
+<dl class="simple">
+<dt>__username: str</dt><dd><p>username of the page</p>
+</dd>
+<dt>__photos: list(Picture)</dt><dd><p>list of photos of the page</p>
+</dd>
+<dt>__happiest_photo: Picture</dt><dd><p>the happiest photo of the page</p>
+</dd>
+<dt>__average_emotions: list(Emotion)</dt><dd><p>list of average emotions of the profile</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>__parce_page_info()</dt><dd><p>parse info of Instagram page</p>
+</dd>
+<dt>photos()</dt><dd><p>get private attribute __photos</p>
+</dd>
+<dt>happiest_photo()</dt><dd><p>get private attribute __happiest_photo</p>
+</dd>
+<dt>average_emotions()</dt><dd><p>get private attribute __average_emotions</p>
+</dd>
+<dt>relative_fakeness()</dt><dd><p>return the relative percentage of fake profile emotion compared to
+the average human emotions</p>
+</dd>
+<dt>write_to_file()</dt><dd><p>write to the file statistics of a particular Instagram profile</p>
+</dd>
+<dt>visualize()</dt><dd><p>display profile statistics in graphs and diagrams</p>
+</dd>
+<dt>zip_result()</dt><dd><p>create zip archive with analysed data</p>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="classes.InstagramPage.average_emotions">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">average_emotions</span></span><a class="headerlink" href="#classes.InstagramPage.average_emotions" title="Permalink to this definition">¶</a></dt>
+<dd><p>get private attribute __average_emotions</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="classes.InstagramPage.happiest_photo">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">happiest_photo</span></span><a class="headerlink" href="#classes.InstagramPage.happiest_photo" title="Permalink to this definition">¶</a></dt>
+<dd><p>get private attribute __happiest_photo</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="classes.InstagramPage.photos">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">photos</span></span><a class="headerlink" href="#classes.InstagramPage.photos" title="Permalink to this definition">¶</a></dt>
+<dd><p>get private attribute __photos</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="classes.InstagramPage.relative_fakeness">
+<span class="sig-name descname"><span class="pre">relative_fakeness</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">float</span><a class="headerlink" href="#classes.InstagramPage.relative_fakeness" title="Permalink to this definition">¶</a></dt>
+<dd><p>return the relative percentage of fake profile emotion
+compared to the average human emotions</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="classes.InstagramPage.visualize">
+<span class="sig-name descname"><span class="pre">visualize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#classes.InstagramPage.visualize" title="Permalink to this definition">¶</a></dt>
+<dd><p>display profile statistics in graphs and diagrams</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="classes.InstagramPage.write_to_file">
+<span class="sig-name descname"><span class="pre">write_to_file</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#classes.InstagramPage.write_to_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>writing to the file statistics of a particular Instagram profile</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="classes.InstagramPage.zip_result">
+<span class="sig-name descname"><span class="pre">zip_result</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#classes.InstagramPage.zip_result" title="Permalink to this definition">¶</a></dt>
+<dd><p>create zip archive with analysed data</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">Emotions recognition</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Alina.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
