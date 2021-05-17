@@ -14,7 +14,31 @@ from msrest.authentication import CognitiveServicesCredentials
 
 
 class Emotion:
-    """ class Emotion """
+    """
+    Class for Emotion representation.
+
+    Attributes
+    ----------
+    __emotions: str
+        name of emotion
+    __percentage: float
+        percentage of emotion
+    __life_average: float
+        average percentage of emotion in life
+
+    Modules
+    -------
+    __get_life_average()
+        parse life average emotion percentage by name
+    emotion()
+        get private attribute __emotions
+    percentage()
+        get private attribute __percentage
+    life_average()
+        get private attribute __life_average
+    __str__()
+        returns string representation of the emotion ADT class
+    """
     def __init__(self, emotion: str, percentage: float):
         """ initialize class parameters """
         self.__emotions = emotion
@@ -61,7 +85,35 @@ class Emotion:
 
 
 class Image:
-    """ class Image """
+    """
+    Class for Image representation.
+
+    Attributes
+    ----------
+    __link: str
+        link of the image
+    __all_attributes: azure.cognitiveservices.vision.face.models._models_py3.FaceAttributes
+        all attributes of the image
+    __emotions: list(Emotion)
+        list of emotions on the photo, each emotion is a member of Emotion class
+    __picture: Picture
+        Picture object of the photo
+    __rectangle: azure.cognitiveservices.vision.face.models._models_py3.FaceRectangle
+        Rectangle object of the photo
+
+    Methods
+    -------
+    __parse_image_info()
+        parse info of Instagram page
+    all_attributes()
+        get privat attribute __all_attributes
+    emotions()
+        get private attribute __emotions
+    picture()
+        get private attribute __picture
+    rectangle()
+        get private attribute __rectangle
+    """
     def __init__(self, link: str):
         self.__link = link
         self.__all_attributes = {}  # type - dict
@@ -128,7 +180,40 @@ class Image:
 
 
 class InstagramPage:
-    """ class InstagramPage """
+    """
+    Class for InstagramPage representation.
+
+    Attributes
+    ----------
+    __username: str
+        username of the page
+    __photos: list(Picture)
+        list of photos of the page
+    __happiest_photo: Picture
+        the happiest photo of the page
+    __average_emotions: list(Emotion)
+        list of average emotions of the profile
+
+    Methods
+    -------
+    __parce_page_info()
+        parse info of Instagram page
+    photos()
+        get private attribute __photos
+    happiest_photo()
+        get private attribute __happiest_photo
+    average_emotions()
+        get private attribute __average_emotions
+    relative_fakeness()
+        return the relative percentage of fake profile emotion compared to
+        the average human emotions
+    write_to_file()
+        write to the file statistics of a particular Instagram profile
+    visualize()
+        display profile statistics in graphs and diagrams
+    zip_result()
+        create zip archive with analysed data
+    """
     __emotions_order = ['anger', 'contempt', 'disgust', 'fear', 'happiness',\
                         'neutral', 'sadness', 'surprise']
     def __init__(self, username: str):
