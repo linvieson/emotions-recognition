@@ -81,6 +81,12 @@ download.
 ***
 
 ### Description of test examples
+Unittest was used for module testing of the program. The TestADTs class has three methods for testing three main ADT classes used in the program:
+* test_emotion() - has tests for emotion ADT class
+* test_image() - has tests for Image ADT class
+* test_instagram_page() - has tests for InstagramPage ADT class
+The successsful module running demonstrates the correctness of the work of the program.
+
 ***
 
 ### Results

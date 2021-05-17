@@ -53,9 +53,6 @@
             justify-content: center;
         }
 
-        #main-content {
-            width: 100%;
-        }
 
         button {
             border-radius: 10px;
@@ -86,9 +83,11 @@
         }
 
         .page-content{
+            height: 100%;
             position: absolute;
             top: 0%;
             left: 0%;
+            width: 100%;
             background-position: center;
             background-size: 100%;
             background-image: url('../static/image.jpg');
@@ -96,11 +95,30 @@
         .email{
             font-size: 20px;
         }
+        #main-content {
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(204, 59, 49, 0.822);
+            /* Black w/opacity/see-through */
+            color: white;
+            border-radius: 30px;
+            font-weight: bold;
+            border: 3px solid #f1f1f1;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            width: 70%;
+            padding: 20px;
+            text-align: center;
+            font-size: 40px;
+        }
+
     </style>
 </head>
 
 <body>
-    <!-- <div class="bg-image"></div> -->
     <div class="page-content">
         <div class="header">
             <button id='backbutton' onclick="window.location.href='/'">Back</button>
@@ -108,47 +126,10 @@
             <!-- <button>Contact us</button> -->
             <!-- <button></button> -->
         </div>
-        <div id='main-content'>
-            <div class="container">
-                <div class='person'>
-                    <p class='name'>Alina Voronina</p>
-                    <div class="description">
-                        <img src='../static/Alina.JPG'>
-                        <p class='email'>alina.voronina@ucu.edu.ua</p>
-                    </div>
-                </div>
-                <div class='person'>
-                    <p class='name'>Oleksandra Tsepilova</p>
-                    <div class="description">
-                        <img src='../static/sasha.jpg'>
-                        <p class='email'>oleksandra.tsepilova@ucu.edu.ua</p>
-                    </div>
-                </div>
-                <div class='person'>
-                    <p class='name'>Anita Hrodzytska</p>
-                    <div class="description">
-                        <img src='../static/anita.jpg'>
-                        <p class='email'>anita.hrodzytska@ucu.edu.ua</p>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class='person'>
-                    <p class='name'>Mykhailo Pasichnyk</p>
-                    <div class="description">
-                        <img src='../static/mykhailo.jpeg'>
-                        <p class='email'>mykhailo.pasichnyk@ucu.edu.ua</p>
-                    </div>
-                </div>
-                <div class='person'>
-                    <p class='name'>Yaroslav Romanus</p>
-                    <div class="description">
-                        <img src='../static/yaroslav.jpg'>
-                        <p class='email'>yaroslav.romanus@ucu.edu.ua</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+    
+    <div id='main-content'>
+        <p>Application doesn't support empty pages, nonexistant users or users without photo with recognizable face</p>
+    </div>
     </div>
 </body>
 

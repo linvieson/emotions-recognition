@@ -46,7 +46,6 @@ class Emotion:
         self.__life_average = None  # type - float
         self.__get_life_average()
 
-
     def __get_life_average(self):
         """ parse life average emotion percentage by name """
         life_averages = {'anger': 0.1, 'contempt': 0.01, 'disgust': 0.11,\
@@ -56,7 +55,6 @@ class Emotion:
             self.__life_average = life_averages[self.__emotions]
         except KeyError as err:
             return err
-
 
     @property
     def emotions(self):
@@ -77,7 +75,7 @@ class Emotion:
 
 
     def __str__(self):
-        """ returns string representation of the emotion ADT class """
+        """ returns string representation of the image ADT class"""
         return \
           f'emotion name:                    {self.emotions}\n'\
           f'emotion percentage:              {round(100*self.percentage,1)}\n'\
@@ -136,9 +134,9 @@ class Image:
             url=single_face_image_url, detection_model='detection_01',
             return_face_attributes=['emotion'])
 
-        if not detected_faces:
-            raise Exception(
-                'No face detected from image {}'.format(single_image_name))
+        # if not detected_faces:
+        #     raise Exception(
+        #         'No face detected from image {}'.format(single_image_name))
 
         emotions_order = ['anger', 'contempt', 'disgust', 'fear',
         'happiness', 'neutral', 'sadness', 'surprise']
@@ -153,10 +151,11 @@ class Image:
             self.__picture = Picture.open(requests.get(self.__link, stream=True).raw)
             self.__rectangle = face.face_rectangle
         else:
-            self.__all_attributes = {}
-            self.__emotions = []
-            self.__picture = None
-            self.__rectangle = None
+            raise ValueError
+            # self.__all_attributes = {}
+            # self.__emotions = []
+            # self.__picture = None
+            # self.__rectangle = None
 
     @property
     def all_attributes(self):
@@ -228,7 +227,10 @@ class InstagramPage:
 
         URL = "https://instagram47.p.rapidapi.com/user_posts"
         # rapidapi key
-        KEY = "c2480c722emsh51bc692f9b351bcp1a170ajsnb495557dbedf"
+        # KEY = "2eff45ea8amshae726bb389e7279p113b54jsne071b6a20348"
+        # KEY = "c2480c722emsh51bc692f9b351bcp1a170ajsnb495557dbedf"
+        # KEY = "623e807215msh15f665bc8db7ce2p1b409djsn2e81a08ef9c5"
+        KEY = "5acd5fe65bmshba7744cd8b34cfap117aafjsne6f930a8ef76"
 
         querystring = {"username": self.__username}
 
@@ -242,16 +244,23 @@ class InstagramPage:
         for post in response.json()['body']['items']:
             try:
                 self.__photos.append(Image(post['image_versions2']['candidates'][0]['url']))
-            except:
+            except ValueError:
                 pass
 
-        max_happiness = 0
+        max_happiness = -1
+        happiest_photo = None
         for photo in self.__photos:
-            happiness = photo.emotions[4].percentage
-            if happiness > max_happiness:
-                max_happiness = happiness
-                happiest_photo = photo
-        self.__happiest_photo = happiest_photo.picture
+            try:
+                happiness = photo.emotions[4].percentage
+                if happiness > max_happiness:
+                    max_happiness = happiness
+                    happiest_photo = photo
+            except IndexError:
+                print(photo.emotions)
+        try:
+            self.__happiest_photo = happiest_photo.picture
+        except IndexError:
+            self.__happiest_photo = Picture.open('../static/no-image.png')
 
         summary_emotions = [0] * 8
         for photo in self.__photos:
@@ -262,6 +271,11 @@ class InstagramPage:
         for idx_emotion in range(8):
             self.__average_emotions.append(Emotion(self.__emotions_order[idx_emotion],\
                  summary_emotions[idx_emotion] / num_photos))
+
+    @property
+    def username(self):
+        """ get privat attribute __username """
+        return self.__username
 
     @property
     def photos(self):
@@ -286,7 +300,17 @@ class InstagramPage:
         fakeness = 0
         for emotion in self.average_emotions:
             fakeness += abs(emotion.percentage - emotion.life_average)
-        return fakeness
+        return round(fakeness, 1)
+
+    def get_emoji(self):
+        """ get emoji from most vivid emotion """
+        biggest_emotion_num = 0
+        biggest_emotion = None
+        for emotion in self.average_emotions:
+            if biggest_emotion_num < emotion.percentage:
+                biggest_emotion = emotion
+                biggest_emotion_num = emotion.percentage
+        return f'../static/emotions/{biggest_emotion.emotions}.png'
 
     def write_to_file(self):
         """
@@ -298,7 +322,6 @@ class InstagramPage:
             for emotion in emotions:
                 csv_out.writerow([emotion.emotions, emotion.percentage])
             csv_out.writerow(['fakeness', self.relative_fakeness()])
-
 
     def visualize(self):
         """
@@ -320,9 +343,8 @@ class InstagramPage:
         plt.xlabel('Emotions')
         plt.ylabel('Percentage')
         plt.title('Comparison of emotions in Instagram and in life')
-        plt.legend(labels=('Instagram page emotions',\
-                            'Average life emotions'), loc='upper left')
-        plt.savefig('emotion_graphic.png')
+        plt.legend(labels=('Instagram page emotions', 'Average life emotions'), loc='upper left')
+        plt.savefig(f'{self.username}_emotion_graphic.png')
         plt.close()
 
         # piechart
@@ -332,12 +354,11 @@ class InstagramPage:
         y.append(100 - sum(y))
         colors = ['#bcf8ec', '#aed9e0', '#a7ccd4', '#8b687f', '#7b435b',\
                   '#e8eddf', '#cfdbd5', '#aac8e6']
-        plt.pie(y, startangle = 90, shadow=True, autopct='%1.2f', colors=colors)
-        plt.legend(title = 'Emotions', labels=labels, loc='center left', \
-                   bbox_to_anchor=(1, 0, 0.5, 1))
-        plt.savefig('emotion_piechart.png')
+        plt.pie(y, startangle=90, shadow=True, autopct='%1.2f',
+                colors=colors)
+        plt.legend(title='Emotions', labels=labels, loc='center left', bbox_to_anchor=(1, 0, 0.5, 1))
+        plt.savefig(f'{self.username}_emotion_piechart.png')
         plt.close()
-
 
     def zip_result(self):
         """ create zip archive with analysed data """
@@ -355,7 +376,7 @@ class InstagramPage:
         self.visualize()
         os.chdir('..')
 
-        with zipfile.ZipFile('analyzing.zip', 'w') as file:
+        with zipfile.ZipFile(f'{self.username}_analyzing.zip', 'w') as file:
             for filename in temp_directory.iterdir():
                 file.write(filename, filename.name)
         shutil.rmtree(temp_directory)

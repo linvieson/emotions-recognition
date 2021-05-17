@@ -46,6 +46,8 @@
         }
 
         button{
+            border-radius: 10px;
+            padding: 5px;
             background-color: rgba(49, 204, 196, 0.856);
             font-size: 25px;
             margin-left: 20px;
@@ -74,13 +76,16 @@
             background-size: cover;
         }
 
-        /* p{
-            font-size: 40px;
-        } */
+        p{
+            margin-top: 10px;
+        }
 
         input[type=text] {
             position: absolute;
             display: block;
+            text-align: center;
+            border-radius: 30px;
+            padding: 5px;
             align-content: center;
             font-size: 34px;
             font-family: inherit;
@@ -89,8 +94,10 @@
             width: 450px;
             left: 50%;
             transform: translate(-50%, -50%);
+            outline: none;
             border: none;
         }
+        
 
         input[type=text]:focus {
             background-color: rgb(237, 245, 248);
@@ -115,12 +122,12 @@
     <div class="bg-image"></div>
     <header>
         <button onclick="window.location.href='https://github.com/linvieson/emotions-recognition'">Info</button>
-        <button onclick="window.location.href='infopage.html'">Contact us</button>
+        <button onclick="window.location.href='infopage'">Contact us</button>
         <!-- <button></button> -->
     </header>
     <div id='main-content'>
-        <p>Get information about emotions on your Instagram page</p>
-        <form action="/page" method="post">
+        <p>Get information about emotions on your<br>Instagram page</p>
+        <form action="/emotions" method="post">
             <input name="nickname" placeholder="Enter user nickname" type="text">
             <input type="submit" value="Get info">
         </form>
