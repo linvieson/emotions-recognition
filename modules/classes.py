@@ -145,7 +145,8 @@ class InstagramPage:
         # KEY = "2eff45ea8amshae726bb389e7279p113b54jsne071b6a20348"
         # KEY = "c2480c722emsh51bc692f9b351bcp1a170ajsnb495557dbedf"
         # KEY = "623e807215msh15f665bc8db7ce2p1b409djsn2e81a08ef9c5"
-        KEY = "5acd5fe65bmshba7744cd8b34cfap117aafjsne6f930a8ef76"
+        # KEY = "5acd5fe65bmshba7744cd8b34cfap117aafjsne6f930a8ef76"
+        KEY = "6a4879f288msh788d248e775c43cp1dcc6fjsnc6c8bc5c144a"
 
         querystring = {"username": self.__username}
 
