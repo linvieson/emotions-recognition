@@ -15,7 +15,7 @@ All data can be downloaded.
 ***
 
 ### Aim of the project
-It will allows to analyze the selected profile and provide statistics on its emotional range. The peculiarity of our application is the ability to see the differences between the percentage distribution of emotions of the Instagram profile and the average human emotions.
+It allows to analyze the selected profile and provide statistics on its emotional range. The peculiarity of our application is the ability to see the differences between the percentage distribution of emotions of the Instagram profile and the average human emotions.
 
 Most bloggers only share happy photos, so it creates the illusion that everyone on the web is always positive. This phenomenon negatively affects the consciousness and self-esteem of people who look at endlessly happy photos of people in the feed every day and think that something is wrong with them.
 
