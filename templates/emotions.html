@@ -34,7 +34,7 @@
             font-size: 28px;
             margin-left: 5%;
             margin-bottom: 2%;
-            padding-bottom:5%;
+            padding-bottom:2%;
         }
 
         .header {
@@ -91,6 +91,27 @@
         }
         .email{
             font-size: 20px;
+        }
+        #pseudo-button{
+            padding: 7px;
+            background-color: rgba(206, 228, 227, 0.514);
+            border-radius: 10px;
+            width: 70%;
+            margin-top: 36px;
+            margin-left: 15%;
+            cursor: pointer;
+
+        }
+        #pseudo-button:hover{
+            padding: 7px;
+            background-color: rgba(206, 228, 227, 0.514);
+            border-radius: 10px;
+            border: black solid;
+
+        }
+        #pseudo-button a{
+            color: white;
+            text-decoration: none;
         }
         #hons{
             margin-top: 20px;
@@ -179,7 +200,10 @@
                         
                     </div>
                 </div>
-                <a href="{{ url_for('download', filename = data['nickname']+'.txt') }}">File</a>
+                <div id='pseudo-button'>
+                <a href="{{ url_for('download', filename = 'static' + '/' +
+                'data' + '/' + data['nickname'] + '/' + data['nickname']+'_analyzing.zip') }}">Your analysis is here!</a>
+                </div>
             </div>
         </div>
     </div>

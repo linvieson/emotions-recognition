@@ -2,25 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0a516be4-8732-40a0-8ade-bc4e1e6fbb40" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/classes.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/classes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bohdan_mykhayliv/bohdan_mykhayliv_emotion_graphic.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bohdan_mykhayliv/bohdan_mykhayliv_emotion_piechart.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bohdan_mykhayliv/bohdan_mykhayliv_happiest_photo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/f.o.x.109/f.o.x.109_emotion_graphic.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/f.o.x.109/f.o.x.109_emotion_piechart.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/f.o.x.109/f.o.x.109_happiest_photo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/linvieson/linvieson_emotion_graphic.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/linvieson/linvieson_emotion_piechart.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/linvieson/linvieson_happiest_photo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/sasha_tsepilova/sasha_tsepilova_emotion_graphic.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/sasha_tsepilova/sasha_tsepilova_emotion_piechart.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/sasha_tsepilova/sasha_tsepilova_happiest_photo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/yaroslavromanus/yaroslavromanus_emotion_graphic.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/yaroslavromanus/yaroslavromanus_emotion_piechart.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/yaroslavromanus/yaroslavromanus_happiest_photo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/emotions.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/emotions.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,9 +32,12 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/static/emotions" />
       <recent name="$PROJECT_DIR$/static" />
@@ -115,9 +103,25 @@
       <option name="launchJavascriptDebuger" value="false" />
       <method v="2" />
     </configuration>
+    <configuration name="Flask (testes/main.py)" type="Python.FlaskServer" temporary="true" nameIsGenerated="true">
+      <module name="emotions-recognition" />
+      <option name="target" value="$PROJECT_DIR$/testes/main.py" />
+      <option name="targetType" value="PATH" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Flask server.Flask (main.py)" />
+        <item itemvalue="Flask server.Flask (testes/main.py)" />
         <item itemvalue="Python.ex" />
       </list>
     </recent_temporary>
@@ -130,7 +134,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1621198280506</updated>
-      <workItem from="1621198282652" duration="13001000" />
+      <workItem from="1621198282652" duration="18367000" />
     </task>
     <servers />
   </component>
@@ -139,6 +143,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/emotions_recognition$ex.coverage" NAME="ex Coverage Results" MODIFIED="1621244185803" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
-    <SUITE FILE_PATH="coverage/emotions_recognition$Flask__main_py_.coverage" NAME="Flask (main.py) Coverage Results" MODIFIED="1621245330201" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/emotions_recognition$Flask__testes_main_py_.coverage" NAME="Flask (testes/main.py) Coverage Results" MODIFIED="1621255820113" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/emotions_recognition$Flask__main_py_.coverage" NAME="Flask (main.py) Coverage Results" MODIFIED="1621258676715" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
